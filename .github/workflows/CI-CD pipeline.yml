@@ -45,7 +45,7 @@ jobs:
       - name: Deploy to staging (replace with actual deployment steps)
         run: echo "Deploying to staging..."
         
-   notify:
+  notify:
     name: Notify team on success
     runs-on: windows-latest
     needs: [build-and-test, deploy]
@@ -56,8 +56,6 @@ jobs:
       - name: Check for build-and-test, or deployment success
         id: Check-status
         run: echo "Build, test, and deployment successful!"
-
- 
 
       - name: Send notification on success
         if: steps.build.outcome == 'success' && steps.test.outcome == 'success' && steps.deploy.outcome == 'success'
