@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: .\SLD521FA2DillanSingh20232233\SLD521_Formative_2.sln
+        run:  .\SLD521FA2DillanSingh20232233\SLD521_Formative_2.sln
 
       - name: Run tests
         run: echo "Running tests..."
@@ -44,17 +44,3 @@ jobs:
 
       - name: Deploy to staging (replace with actual deployment steps)
         run: echo "Deploying to staging..."
-        
-  notify:
-     name: Notify team on success
-     runs-on: windows-latest
-     needs: [build-and-test, deploy]
-    
-    steps:
-      - name: Check for build-and-test, or deployment success
-        id: Check-status
-        run: echo "Build-and-test, and deployment successful!"
-
-      - name: Send notification on success
-        if: steps.build.outcome == 'success' && steps.test.outcome == 'success' && steps.deploy.outcome == 'success'
-        run: echo "Build-and-test, and deployment successful! Notify the team"
